@@ -1,0 +1,170 @@
+<html>
+<head>
+    <title>PID050: Extended Maintenance System</title>
+     <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<header>
+    <h1>⚡ Maintenance Planner System</h1>
+    <button class="home-btn" onclick="showTab('dashboard')">🏠 Dashboard</button>
+</header>
+
+<div class="container">
+
+    <div id="dashboard" class="tab-section active" style="background: transparent; box-shadow: none; padding: 0;">
+        <div class="dashboard-grid">
+            <div class="card" onclick="showTab('consumer')">
+                <span class="card-icon">👤</span>
+                <h3>Consumer Report</h3>
+                <p>Log a complaint</p>
+            </div>
+
+            <div class="card" onclick="showTab('staff')">
+                <span class="card-icon">🛠</span>
+                <h3>Active Tasks</h3>
+                <p>3 Critical Pending</p>
+            </div>
+
+            <div class="card" onclick="showTab('inventory')" style="border-top-color: #28a745;">
+                <span class="card-icon">📦</span>
+                <h3>Asset Inventory</h3>
+                <p>Manage Spare Parts</p>
+            </div>
+
+            <div class="card" onclick="showTab('planner')" style="border-top-color: #6f42c1;">
+                <span class="card-icon">📅</span>
+                <h3>Planner</h3>
+                <p>Scheduled Maintenance</p>
+            </div>
+
+            <div class="card" onclick="showTab('analytics')" style="border-top-color: #17a2b8;">
+                <span class="card-icon">📊</span>
+                <h3>Admin Analytics</h3>
+                <p>System Efficiency</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="consumer" class="tab-section">
+        <span class="back-link" onclick="showTab('dashboard')">← Back to Dashboard</span>
+        <h2>📝 Report Maintenance Issue</h2>
+        <form onsubmit="alert('Report submitted!'); showTab('dashboard'); return false;">
+            <div class="form-group">
+                <label>Issue Type</label>
+                <select><option>Sparking Line (Critical)</option><option>Power Cut</option><option>Meter Fault</option></select>
+            </div>
+            <div class="form-group"><label>Location</label><input type="text" placeholder="Pole No / Address"></div>
+            <button class="action-btn">Submit</button>
+        </form>
+    </div>
+
+    <div id="staff" class="tab-section">
+        <span class="back-link" onclick="showTab('dashboard')">← Back to Dashboard</span>
+        <h2>📋 Priority Task List</h2>
+        <table>
+            <thead><tr><th>ID</th><th>Issue</th><th>Priority</th><th>Status</th></tr></thead>
+            <tbody>
+                <tr><td>#101</td><td>Live Wire</td><td><span class="badge bg-red">CRITICAL</span></td><td><button class="action-btn" style="padding: 5px 10px; font-size: 0.8rem;">Start</button></td></tr>
+                <tr><td>#102</td><td>Transformer Heat</td><td><span class="badge bg-orange">HIGH</span></td><td><button class="action-btn" style="padding: 5px 10px; font-size: 0.8rem;">Start</button></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="inventory" class="tab-section">
+        <span class="back-link" onclick="showTab('dashboard')">← Back to Dashboard</span>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>📦 Asset & Inventory Management</h2>
+            <button class="action-btn" style="background-color: #28a745;">+ Add Stock</button>
+        </div>
+        <p>Ensure critical parts are available to prevent maintenance delays.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>11kV Insulator</td>
+                    <td>Ceramics</td>
+                    <td>450 units</td>
+                    <td><span class="badge bg-green">In Stock</span></td>
+                </tr>
+                <tr>
+                    <td>Copper Wire (Guage 4)</td>
+                    <td>Cabling</td>
+                    <td>12 meters</td>
+                    <td><span class="badge bg-red">LOW STOCK</span></td>
+                </tr>
+                <tr>
+                    <td>Transformer Oil</td>
+                    <td>Fluids</td>
+                    <td>50 Liters</td>
+                    <td><span class="badge bg-yellow">Reorder Soon</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="planner" class="tab-section">
+        <span class="back-link" onclick="showTab('dashboard')">← Back to Dashboard</span>
+        <h2>📅 Maintenance Planner</h2>
+        <p>Scheduled preventive maintenance to reduce accident cases.</p>
+        
+        <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #0056b3; margin-bottom: 10px;">
+            <strong>Today (Dec 15)</strong>
+            <div style="margin-top: 5px;">• Sub-station A: Oil Check (10:00 AM)</div>
+            <div style="margin-top: 5px;">• Sector 4: Tree Trimming near lines (02:00 PM)</div>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; margin-bottom: 10px;">
+            <strong>Tomorrow (Dec 16)</strong>
+            <div style="margin-top: 5px;">• Feeder Pillar Maintenance: Zone B</div>
+        </div>
+    </div>
+
+    <div id="analytics" class="tab-section">
+        <span class="back-link" onclick="showTab('dashboard')">← Back to Dashboard</span>
+        <h2>📊 System Analytics & Impact</h2>
+        <p>Maturity based on implementation and efficiency analysis.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                <h3>Task Completion Rate</h3>
+                <label>Critical Tasks (95%)</label>
+                <div class="stat-bar-container"><div class="stat-bar" style="width: 95%; background: #28a745;">95%</div></div>
+                <br>
+                <label>Normal Tasks (60%)</label>
+                <div class="stat-bar-container"><div class="stat-bar" style="width: 60%; background: #fd7e14;">60%</div></div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                <h3>Accident Reduction</h3>
+                <h1 style="color: var(--primary-color); font-size: 3rem; margin: 10px 0;">-40%</h1>
+                <p>Decrease in electrical accidents since system implementation.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function showTab(tabId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.tab-section');
+        sections.forEach(section => section.classList.remove('active'));
+        
+        // Show the selected section
+        document.getElementById(tabId).classList.add('active');
+        
+        // Optional: Scroll to top
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
